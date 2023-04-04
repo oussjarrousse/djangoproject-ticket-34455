@@ -1,12 +1,11 @@
 
-This repository is to illustrate a bug that I am facing with the recent upgrade to 4.2.0 in the i18n_patterns() function.
+
+This repository is to illustrate a bug that I am facing with the recent upgrade to 4.2.0 in the i18n_patterns() function, as described in the ticket https://code.djangoproject.com/ticket/34455
 
 `django.conf.urls.i18n.i18n_patterns()` is not respecting `prefix_default_language=False` when the `django.middleware.common.CommonMiddleware` is defined the settings.MIDDLEWARE list. 
 
 with 4.2.0:     navigating to any valid path without the language prefix will result in HTTP NOT FOUND 404 statuc code
 Prior to 4.2.0: navigating to any valid path without the language prefix will result in HTTP SUCCESS 200 statuc code (actually depending on the path)
-
-
 
 To reproduce the issue, clone the repository, then install `tox`
 
